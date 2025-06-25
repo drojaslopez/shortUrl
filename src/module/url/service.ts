@@ -60,13 +60,13 @@ const createUrl = async (urlOriginal: string) => {
   }
 };
 
-const deleteUrl = async (id: string) => {
+const deleteUrl = async (idUrl: string) => {
   try {
-    const userSelect = await UrlLink.findByPk(id);
+    const userSelect = await UrlLink.findByPk(idUrl);
     await userSelect?.destroy();
     return userSelect;
   } catch (error) {
-    console.error(" not delete:", error);
+    console.error(" not delete:", idUrl);
     throw new Error(" not delete:");
   }
 };
@@ -85,7 +85,6 @@ const updateUrl = async (idUrl: string, urlOriginal: string, urlShort: string, s
 
   } catch (error) {
     console.error("not create:", idUrl);
-    console.error("not create:", error);
     throw new Error(" not create");
   }
 };

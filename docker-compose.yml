@@ -25,22 +25,22 @@ services:
         # ./postgres-data es una carpeta en tu máquina local
         # /var/lib/postgresql/data es donde PostgreSQL guarda sus datos
         
-  dbNoSQL:
-    image: mongo:latest
-    container_name: desafioMeliNOBD
-    ports:
-      - "27017:27017"
-    environment:
-        # Descomenta estas líneas y cambia los valores para crear un usuario administrador.
-        MONGO_INITDB_ROOT_USERNAME: adminMeli
-        MONGO_INITDB_ROOT_PASSWORD: passwordMeli
-      # Montar un volumen para persistir los datos.
-    volumes:
-        # 'mongo-data' es un volumen nombrado gestionado por Docker.
-        # Esto asegura que los datos en /data/db dentro del contenedor se guarden
-        # en el host y sobrevivan a reinicios o eliminaciones del contenedor.
-        - ./mongo-data:/data/db
-    restart: unless-stopped # Esto reiniciará el contenedor en caso de fallo
+  #dbNoSQL:
+  #  image: mongo:latest
+  #  container_name: desafioMeliNOBD
+  #  ports:
+  #    - "27017:27017"
+  #  environment:
+  #      # Descomenta estas líneas y cambia los valores para crear un usuario administrador.
+  #      MONGO_INITDB_ROOT_USERNAME: adminMeli
+  #      MONGO_INITDB_ROOT_PASSWORD: passwordMeli
+  #    # Montar un volumen para persistir los datos.
+  #  volumes:
+  #      # 'mongo-data' es un volumen nombrado gestionado por Docker.
+  #      # Esto asegura que los datos en /data/db dentro del contenedor se guarden
+  #      # en el host y sobrevivan a reinicios o eliminaciones del contenedor.
+  #      - ./mongo-data:/data/db
+  #  restart: unless-stopped # Esto reiniciará el contenedor en caso de fallo
   #Define volúmenes externos (puedes agregar nombres aquí si los necesitas)
 
 
