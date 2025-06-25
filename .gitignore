@@ -1,0 +1,10 @@
+node_modules
+/dist
+/tmp
+/out-tsc
+postgres-data
+postgres_data
+mongo-data
+.DS_Store
+initProject.sh
+*.bk
