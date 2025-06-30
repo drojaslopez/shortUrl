@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { urlService } from "../url/service";
+import { urlService } from "./service";
 
 const getUrl = async (req: Request, res: Response) => {
   try {

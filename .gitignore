@@ -2,9 +2,7 @@ node_modules
 /dist
 /tmp
 /out-tsc
-postgres-data
-postgres_data
-mongo-data
+DATA-CONTAINER
 .DS_Store
 initProject.sh
 *.bk
