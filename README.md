@@ -61,6 +61,4 @@ Para ejecutar el balanceador de carga, puedes utilizar los siguientes scripts de
 El balanceador de carga comenzará a escuchar en el puerto configurado y distribuirá las solicitudes entrantes a los servidores de destino.
 
 ## Diagrama
-```bash
-https://app.diagrams.net/?title=Diagrama%20sin%20t%C3%ADtulo.drawio&lightbox=1&page-id=IL9wSciJY0rKX-my7zNg&client=1
-```
+[Diseño](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Diagrama%20sin%20t%C3%ADtulo.drawio&dark=auto#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1ksR2uoI1SwThYxY6wRBqbKJstUQnXwqA%26export%3Ddownload).
