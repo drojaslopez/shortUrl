@@ -1,0 +1,54 @@
+# Define la versión del archivo Compose (opcional pero recomendable)
+# version: "3.8"
+# docker-compose up -d
+# Sección para definir los servicios del proyecto
+services:
+  db-primary:
+    image: postgres:latest
+    container_name: db-primary
+    restart: unless-stopped
+    volumes:
+      - ./primary-data:/var/lib/postgresql/data
+      - ./scripts/primary.conf:/etc/postgresql/postgresql.conf
+    ports:
+      - "5432:5432" # Puerto para escrituras
+    environment:
+      - POSTGRES_USER=adminMeli
+      - POSTGRES_PASSWORD=passwordMeli
+      - POSTGRES_DB=desafioMeli
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U adminMeli -d desafioMeli"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf
+
+  db-replica:
+    image: postgres:latest
+    container_name: db-replica
+    restart: unless-stopped
+    ports:
+      - "5433:5432" # Puerto para lecturas
+    environment:
+      - POSTGRES_USER=adminMeli
+      - POSTGRES_PASSWORD=passwordMeli
+      - POSTGRES_DB=desafioMeli
+    volumes:
+      - ./replica-data:/var/lib/postgresql/data
+      - ./scripts/replica.conf:/etc/postgresql/postgresql.conf
+    depends_on:
+      db-primary:
+        condition: service_healthy
+    entrypoint: /bin/bash -c "rm -rf /var/lib/postgresql/data/* && pg_basebackup -h db-primary -p 5432 -U adminMeli -D /var/lib/postgresql/data -Fp -Xs -R && chmod 0700 /var/lib/postgresql/data && exec postgres -c config_file=/etc/postgresql/postgresql.conf"
+    
+volumes:
+  primary-data:
+  replica-data:
+
+  
+
+
+#echo "*:*:*:adminMeli:passwordMeli" > ~/.pgpass
+#chmod 600 ~/.pgpass
+#
+#docker exec -it db-primary psql -U admin -d apidb -c "SELECT * FROM pg_stat_replication;"

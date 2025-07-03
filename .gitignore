@@ -2,7 +2,7 @@ node_modules
 /dist
 /tmp
 /out-tsc
-DATA-CONTAINER
+/BD/DATA-CONTAINER
 .DS_Store
 initProject.sh
 *.bk
