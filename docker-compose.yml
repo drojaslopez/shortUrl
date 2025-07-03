@@ -45,6 +45,8 @@ volumes:
   primary-data:
   replica-data:
 
+  
+
 
 #echo "*:*:*:adminMeli:passwordMeli" > ~/.pgpass
 #chmod 600 ~/.pgpass
