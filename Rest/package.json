@@ -2,10 +2,11 @@
   "name": "desafiomeli",
   "version": "1.0.0",
   "description": "",
-  "main": "main.ts",
+  "main": "src/main.ts",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch main.ts",
+    "start": "node src/main.ts",
+    "dev": "tsx watch src/main.ts",
     "test": "npx vitest --run test/router/user.route.test.ts",
     "coverage": "vitest run --coverage",
     "test:run": "vitest --run"
